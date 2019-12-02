@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Result Page</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta charset="utf-8">
+   <!--Link the files that needed to be used to this file-->
+   <link rel="stylesheet" type="text/css" href="result.css" />
+   
+</head>
+<script type="text/javascript" src= 'popwindow.js'></script>
+<body>
+<div id="app">
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+        <button onclick="addwindow()" class=sub type="submit" name="searchby" value="adddoctor">Add new doctor</button>
+        <button onclick="deletewindow()" class=sub type="submit" name="searchby" value="deletedoc">Delete Doctor</button>
+        <button onclick="location.href='assigndoctor.php'" class=sub type="submit" name="searchby" value="deletedoc">Assign Doctor </button>
+        <button onclick="location.href='MainPage.html'" class=sub type="submit" name="searchby" value="deletedoc">Main Page </button>
+        
+</div>
+
+<div id="popupwindow3"  style="">
+        <form action="adddoctor.php" method="post">
+         
+             <h2> Add Doctor</h2>
+             <div>
+                    <input type="text" name="docfn" class="control" placeholder="First name *" required/>
+                    <input type="text" name="docln" class="control" placeholder="Last name *" required/>
+                    <input type="text" name="doclicenNum" class="control" maxlength="4" placeholder="Enter license number *" required/>
+                    <input type="text" name="hospitalcode" class="control" maxlength="3" placeholder="Enter the hospital code *" required/>
+                    <input type="text" name="specialty" class="control" placeholder="Enter the specialty" />
+                    <input type="date" name="licendate" class="control" />
+               </div>
+          <input id="ss" type="submit" class="sub" value="Add">
+          <button onclick="location.href='editdata.html'" type="button" class="sub" >Cancel</button>
+        </form>
+ </div>
+ <div id="popupwindow4"  style="">
+        <form action="deldoctor.php" method="post">
+         
+             <h2> Delete Doctor</h2>
+             <div>
+                    <input type="text" name="docfn" class="control" placeholder="First name *" required/>
+                    <input type="text" name="docln" class="control" placeholder="Last name *" required/>
+                    
+               </div>
+          <input id="ss" type="submit" class="sub" value="Delete">
+          <button onclick="location.href='editdata.html'" type="button" class="sub" >Cancel</button>
+        </form>
+ </div>
+
+</body>
+</html>

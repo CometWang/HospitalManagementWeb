@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Hospital Management Page</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta charset="utf-8">
+   <!--Link the files that needed to be used to this file-->
+   <link rel="stylesheet" type="text/css" href="mainpagestyle.css" />
+   
+</head>
+
+<script type="text/javascript"/>
+$(function(){
+  //
+  
+  var $tables = $("input[name=table]");
+  var $cancel = $("#cancel");
+  var $byhide = $("#byhide");
+  var $remove = $("#remove");
+  //
+  $cancel.click(function(e){
+    $tables.attr("checked",false);
+  });
+  //
+  $byhide.click(function(e){
+    $("#hidebrowser").attr("checked","checked");
+  });
+  //
+  $remove.click(function(e){
+    var checkedtable=document.getElementsByName("names");
+
+    var len = checkedtable.length;
+    var i = 0;
+    for(; i < len; i++){
+
+      checkedtable[i].checked = false;
+
+    }
+
+  });
+});
+</script>
+<script type="text/javascript"/>
+$("input:radio").click(function(){
+				var domName = $(this).attr('name'); 
+				var checkedState = $(this).attr('checked');
+				$("input:radio[name='" + domName + "']").attr('checked',false);//1.
+				$(this).attr('checked',true);//2.
+				if(checkedState == 'checked'){
+					$(this).attr('checked',false); //3.
+				}
+			});
+</script>
+
+<script type="text/javascript" />
+    function WidthCheck(str, maxLen){  
+          var w = 0;  
+          var tempCount = 0; 
+          
+         for (var i=0; i<str.value.length; i++) {  
+                  
+         var c = str.value.charCodeAt(i);  
+       
+         if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) {  
+              w++;  
+         } 
+        else {    
+           w+=2;  
+         }  
+        if (w > maxLen) {  
+          str.value = str.value.substr(0,i); 
+          break; 
+         }    
+       }  
+    } 
+  </script>
+  <script type="text/javascript" src= 'popwindow.js'/>
+  </script>
+
+  <h1>HOSPITAL SYSTEM</h1>
+  <body>
+      
+      <div id="app">
+        <button onclick="doctorwindow()" class=sub type="submit" name="searchby" value="selectdoctor">Search by doctor</button>
+        <button onclick="location.href = 'gethospital.php'" class=sub type="submit" name="searchby" value="selecthos">Search by hospital</button>
+        <button onclick="patientwindow()" class=sub type="submit" name="searchby" value="selectpatient">Search by patient</button>
+        <button onclick="location.href = 'editdata.html'" class=sub type="submit" name="searchby" value="selectpatient">Edit data</button>
+    </div>
+<!--popup window for the search doctor choice-->
+    <div id="popupwindow1" name="searchwindow1" title="Search" style="">
+     <form action="getdoctor.php" method="post">
+       <div>
+          <h2> Select the condition</h2>
+         <input type="radio" name="searchdoctor" value="lastName" required/> <label class="select" for="searchdoctor">Search by last name</label>
+         <input type="radio" name="searchdoctor" value="firstName" required/> <label class="select" for="searchdoctor">Search by first name</label>
+
+       </div>
+       <div>
+         
+        <input type="radio" name="sequence" value="ascend" /> <label class="select" for="searchdoctor">List by ascending order</label>
+        <input type="radio" name="sequence" value="descend" /> <label class="select" for="searchdoctor">Search by descending order</label>
+
+       </div>
+       <input id="ss" type="submit" class="sub" value="Search">
+       <button onclick="location.href='MainPage.html'" type="button" class="sub" >Cancel</button>
+     </form>
+  </div>
+<!--popupwindow for searching patient-->
+  <div id="popupwindow2" name="searchwindow2" title="Search" style="">
+      <form action="getpatient.php" method="post">
+       
+           <h2> Search Patient</h2>
+           <div>
+         
+              <input type="number" name="ohipnum" class="control" placeholder="Enter OHIP number" required/>
+            
+             </div>
+        <input id="ss" type="submit" class="sub" value="Search">
+        <button onclick="location.href='MainPage.html'" type="button" class="sub" >Cancel</button>
+      </form>
+   </div>
+  </body>
+  </html>

@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Hospital Result Page</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta charset="utf-8">
+   <!--Link the files that needed to be used to this file-->
+   <link rel="stylesheet" type="text/css" href="hospitalstyle.css" />
+   
+</head>
+<script type="text/javascript" src= 'popwindow.js'/>
+</script>
+<body>
+  <p id="demo"></p>
+
+  <button onclick="location.href='mainpage.html'" type="button" >Back to main page</button>     
+  <button onclick="hospitalwindow()" type="button">Update Hospital</button>
+
+  <div id="popupwindow1" name="searchwindow2" title="update" style="">
+        <form action="updatehospital.php" method="post">
+            <h2>UPDATE HOSPITAL</h2>
+         <div><input type="text" class="update" name="originname" placeholder="Enter the Original Hospital Code" required/></div>
+         <div><input type="text" class="update" name="updatename" placeholder="Enter the new name for the hospital" required/></div>
+          <input id="ss" type="submit" class="sub" value="Update">
+          <button onclick="location.href='hospitalresult.html'" type="button" class="sub" >Cancel</button>
+        </form>
+     </div>
+</body>
+</html>
