@@ -1,12 +1,12 @@
 <?
 //this script will get the data for the search based on the licensed date
-
+require_once('connection.php');
 $date = $_POST["licendate"];
 if(empty($date)){
     echo "<script >alert('Need Input!');window.location.href='resultHandle.html'</script>";
     exit();
 }
-require_once('connection.php');
+
 //connector("localhost","root","","jwan949assign2db");
 
 $query="SELECT firstName,lastName,specialty,licensedDate FROM doctor WHERE licensedDate<'$date'";

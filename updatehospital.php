@@ -7,7 +7,8 @@ $new = $_POST["updatename"];
 
 $query="UPDATE hospital SET hospitalName='$new' WHERE code='$origin'";
 $job=mysqli_query($GLOBALS['link'],$query);
-if(!$job){
+$check=mysqli_affected_rows($GLOBALS['link']);
+if($check<1){
     echo "<script >alert('Invalid data! Please check input!');window.location.href='hospitalresult.html'</script>";
     exit();
 }else{

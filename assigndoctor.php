@@ -56,7 +56,7 @@ if (!$result) {
       <input id="ss" type="submit" class="sub" name="operation" value="Assign">
      
     </form>
-    <button onclick="location.href='editdata.html'" type="button" class="sub" >Main Page</button>
+    <button onclick="location.href='editdata.html'" type="button" class="sub" >Back Page</button>
 </div>
 </body>
 </html>
